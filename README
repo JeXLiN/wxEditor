@@ -1,0 +1,15 @@
+Install dependencies:
+pacman -S wxgtk3
+
+Build:
+pacman -S cmake
+
+mkdir build && cd build
+cmake ..
+make -j$(nproc)
+
+Run:
+./build/release/wxEditor
+
+wxWidgets form builder:
+wxformbuilder
