@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version 3.9.0 Jan 20 2021)
+// C++ code generated with wxFormBuilder (version 3.9.0 Jan 25 2021)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
@@ -16,7 +16,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menubar1 = new wxMenuBar( 0 );
 	m_menu1 = new wxMenu();
 	wxMenuItem* newFileMenu;
-	newFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("New File") ) , wxEmptyString, wxITEM_NORMAL );
+	newFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("New File") ) + wxT('\t') + wxT("Ctrl+N"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	newFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_NEW, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -25,7 +25,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->Append( newFileMenu );
 
 	wxMenuItem* openFileMenu;
-	openFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Open File") ) , wxEmptyString, wxITEM_NORMAL );
+	openFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Open File") ) + wxT('\t') + wxT("Ctrl+O"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	openFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_FILE_OPEN, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -34,7 +34,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->Append( openFileMenu );
 
 	wxMenuItem* saveFileMenu;
-	saveFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Save File") ) , wxEmptyString, wxITEM_NORMAL );
+	saveFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Save File") ) + wxT('\t') + wxT("Ctrl+S"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	saveFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_FILE_SAVE, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -43,7 +43,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->Append( saveFileMenu );
 
 	wxMenuItem* saveAsFileMenu;
-	saveAsFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Save As File") ) , wxEmptyString, wxITEM_NORMAL );
+	saveAsFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Save As File") ) + wxT('\t') + wxT("Ctrl+Shift+S"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	saveAsFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_FILE_SAVE_AS, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -65,7 +65,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->AppendSeparator();
 
 	wxMenuItem* exitMenu;
-	exitMenu = new wxMenuItem( m_menu1, wxID_EXIT, wxString( wxT("Exit") ) , wxEmptyString, wxITEM_NORMAL );
+	exitMenu = new wxMenuItem( m_menu1, wxID_EXIT, wxString( wxT("Exit") ) + wxT('\t') + wxT("Ctrl+Q"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	exitMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_QUIT, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -77,7 +77,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 
 	m_menu3 = new wxMenu();
 	wxMenuItem* undoMenu;
-	undoMenu = new wxMenuItem( m_menu3, wxID_ANY, wxString( wxT("Undo") ) , wxEmptyString, wxITEM_NORMAL );
+	undoMenu = new wxMenuItem( m_menu3, wxID_ANY, wxString( wxT("Undo") ) + wxT('\t') + wxT("Ctrl+U"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	undoMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_UNDO, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -86,7 +86,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu3->Append( undoMenu );
 
 	wxMenuItem* redoMenu;
-	redoMenu = new wxMenuItem( m_menu3, wxID_ANY, wxString( wxT("Redo") ) , wxEmptyString, wxITEM_NORMAL );
+	redoMenu = new wxMenuItem( m_menu3, wxID_ANY, wxString( wxT("Redo") ) + wxT('\t') + wxT("Ctrl+R"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	redoMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_REDO, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
