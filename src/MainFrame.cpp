@@ -13,28 +13,38 @@ MainFrame::MainFrame(wxWindow* parent): MainFrame1(parent)
         wxT("Python Files (*.py)|*.py");
 
     font = this->GetFont();
-    textedit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
+    textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
 }
 
 void MainFrame::OnNewFile(wxCommandEvent& WXUNUSED(event))
 {
-    this->textedit->ClearAll();
+    if(textEdit->GetModify()){
+        if(wxMessageBox(wxT("Current content has not been saved! Proceed?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO, this) == wxNO)
+            return;
+        else{
+            goto newfile;
+        }
+    }
+
+newfile:
+    this->textEdit->ClearAll();
+    this->textEdit->StyleClearAll();
+    this->textEdit->EmptyUndoBuffer();
     CurrentFilePath.Clear();
     this->SetTitle(wxString(APPNAME) << " - untitled*");
 }
 
 void MainFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 {
-    /*
-      if (...current content has not been saved...)
-      {
-      if (wxMessageBox(_("Current content has not been saved! Proceed?"), _("Please confirm"),
-      wxICON_QUESTION | wxYES_NO, this) == wxNO )
-      return;
-      //else: proceed asking to the user the new file to open
-      }
-    */
+    if(textEdit->GetModify()){
+        if(wxMessageBox(wxT("Current content has not been saved! Proceed?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO, this) == wxNO)
+            return;
+        else{
+            goto opendialog;
+        }
+    }
 
+opendialog:
     wxFileDialog openFileDialog(this, "Open file", "", "",
                                 file_ext,
                                 wxFD_OPEN,
@@ -42,7 +52,7 @@ void MainFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 
     if(openFileDialog.ShowModal() == wxID_OK){
         CurrentFilePath = openFileDialog.GetPath();
-        textedit->LoadFile(CurrentFilePath);
+        textEdit->LoadFile(CurrentFilePath);
         SetTitle(wxString(APPNAME) << " - " << openFileDialog.GetFilename());
     }
 
@@ -58,7 +68,7 @@ void MainFrame::OnSave(wxString& path)
 
 	if (saveFileDialog.ShowModal() == wxID_OK){
         path = saveFileDialog.GetPath();
-        textedit->SaveFile(path);
+        textEdit->SaveFile(path);
         SetTitle(wxString(APPNAME) << " - " << saveFileDialog.GetFilename());
 	}
 
@@ -68,7 +78,7 @@ void MainFrame::OnSave(wxString& path)
 void MainFrame::OnSaveFile(wxCommandEvent& WXUNUSED(event))
 {
     if(!CurrentFilePath.IsEmpty())
-        textedit->SaveFile(CurrentFilePath);
+        textEdit->SaveFile(CurrentFilePath);
     else
         OnSave(CurrentFilePath);
 }
@@ -80,12 +90,12 @@ void MainFrame::OnSaveAsFile(wxCommandEvent& WXUNUSED(event))
 
 void MainFrame::OnUndo(wxCommandEvent& WXUNUSED(event))
 {
-    this->textedit->Undo();
+    this->textEdit->Undo();
 }
 
 void MainFrame::OnRedo(wxCommandEvent& WXUNUSED(event))
 {
-    this->textedit->Redo();
+    this->textEdit->Redo();
 }
 
 void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
@@ -95,6 +105,20 @@ void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 
 void MainFrame::OnExit(wxCommandEvent& WXUNUSED(event))
 {
+    if(textEdit->GetModify()){
+        int answer = wxMessageBox(wxT("Current content has not been saved! Save file?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO | wxCANCEL, this);
+        if(answer == wxYES){
+            if(!CurrentFilePath.IsEmpty())
+                textEdit->SaveFile(CurrentFilePath);
+            else
+                OnSave(CurrentFilePath);
+        }
+        else if(answer == wxNO)
+            this->Close();
+        else if(answer == wxCANCEL)
+            return;
+    }
+
     this->Close();
 }
 
@@ -103,7 +127,7 @@ void MainFrame::OnSettingsDialog(wxCommandEvent& WXUNUSED(event))
     SettingsDialog settings(NULL, font);
     if(settings.ShowModal() == wxID_OK){
         font = settings.getFont();
-        textedit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
+        textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
     }
     settings.Destroy();
 }

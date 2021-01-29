@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version 3.9.0 Jan 11 2021)
+// C++ code generated with wxFormBuilder (version 3.9.0 Jan 20 2021)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
@@ -130,49 +130,49 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer1;
 	bSizer1 = new wxBoxSizer( wxVERTICAL );
 
-	textedit = new wxStyledTextCtrl( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, wxEmptyString );
-	textedit->SetUseTabs( true );
-	textedit->SetTabWidth( 4 );
-	textedit->SetIndent( 4 );
-	textedit->SetTabIndents( true );
-	textedit->SetBackSpaceUnIndents( true );
-	textedit->SetViewEOL( false );
-	textedit->SetViewWhiteSpace( false );
-	textedit->SetMarginWidth( 2, 0 );
-	textedit->SetIndentationGuides( false );
-	textedit->SetReadOnly( false );
-	textedit->SetMarginType( 1, wxSTC_MARGIN_SYMBOL );
-	textedit->SetMarginMask( 1, wxSTC_MASK_FOLDERS );
-	textedit->SetMarginWidth( 1, 16);
-	textedit->SetMarginSensitive( 1, true );
-	textedit->SetProperty( wxT("fold"), wxT("1") );
-	textedit->SetFoldFlags( wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED | wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED );
-	textedit->SetMarginType( 0, wxSTC_MARGIN_NUMBER );
-	textedit->SetMarginWidth( 0, textedit->TextWidth( wxSTC_STYLE_LINENUMBER, wxT("_99999") ) );
+	textEdit = new wxStyledTextCtrl( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, wxEmptyString );
+	textEdit->SetUseTabs( true );
+	textEdit->SetTabWidth( 4 );
+	textEdit->SetIndent( 4 );
+	textEdit->SetTabIndents( true );
+	textEdit->SetBackSpaceUnIndents( true );
+	textEdit->SetViewEOL( false );
+	textEdit->SetViewWhiteSpace( false );
+	textEdit->SetMarginWidth( 2, 0 );
+	textEdit->SetIndentationGuides( false );
+	textEdit->SetReadOnly( false );
+	textEdit->SetMarginType( 1, wxSTC_MARGIN_SYMBOL );
+	textEdit->SetMarginMask( 1, wxSTC_MASK_FOLDERS );
+	textEdit->SetMarginWidth( 1, 16);
+	textEdit->SetMarginSensitive( 1, true );
+	textEdit->SetProperty( wxT("fold"), wxT("1") );
+	textEdit->SetFoldFlags( wxSTC_FOLDFLAG_LINEBEFORE_CONTRACTED | wxSTC_FOLDFLAG_LINEAFTER_CONTRACTED );
+	textEdit->SetMarginType( 0, wxSTC_MARGIN_NUMBER );
+	textEdit->SetMarginWidth( 0, textEdit->TextWidth( wxSTC_STYLE_LINENUMBER, wxT("_99999") ) );
 	{
 		wxFont font = wxFont( 12, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Anonymous Pro") );
-		textedit->StyleSetFont( wxSTC_STYLE_DEFAULT, font );
+		textEdit->StyleSetFont( wxSTC_STYLE_DEFAULT, font );
 	}
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDER, wxSTC_MARK_BOXPLUS );
-	textedit->MarkerSetBackground( wxSTC_MARKNUM_FOLDER, wxColour( wxT("BLACK") ) );
-	textedit->MarkerSetForeground( wxSTC_MARKNUM_FOLDER, wxColour( wxT("WHITE") ) );
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDEROPEN, wxSTC_MARK_BOXMINUS );
-	textedit->MarkerSetBackground( wxSTC_MARKNUM_FOLDEROPEN, wxColour( wxT("BLACK") ) );
-	textedit->MarkerSetForeground( wxSTC_MARKNUM_FOLDEROPEN, wxColour( wxT("WHITE") ) );
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDERSUB, wxSTC_MARK_EMPTY );
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDEREND, wxSTC_MARK_BOXPLUS );
-	textedit->MarkerSetBackground( wxSTC_MARKNUM_FOLDEREND, wxColour( wxT("BLACK") ) );
-	textedit->MarkerSetForeground( wxSTC_MARKNUM_FOLDEREND, wxColour( wxT("WHITE") ) );
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_BOXMINUS );
-	textedit->MarkerSetBackground( wxSTC_MARKNUM_FOLDEROPENMID, wxColour( wxT("BLACK") ) );
-	textedit->MarkerSetForeground( wxSTC_MARKNUM_FOLDEROPENMID, wxColour( wxT("WHITE") ) );
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY );
-	textedit->MarkerDefine( wxSTC_MARKNUM_FOLDERTAIL, wxSTC_MARK_EMPTY );
-	textedit->SetSelBackground( true, wxSystemSettings::GetColour( wxSYS_COLOUR_HIGHLIGHT ) );
-	textedit->SetSelForeground( true, wxSystemSettings::GetColour( wxSYS_COLOUR_HIGHLIGHTTEXT ) );
-	textedit->SetFont( wxFont( 12, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Anonymous Pro") ) );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDER, wxSTC_MARK_BOXPLUS );
+	textEdit->MarkerSetBackground( wxSTC_MARKNUM_FOLDER, wxColour( wxT("BLACK") ) );
+	textEdit->MarkerSetForeground( wxSTC_MARKNUM_FOLDER, wxColour( wxT("WHITE") ) );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDEROPEN, wxSTC_MARK_BOXMINUS );
+	textEdit->MarkerSetBackground( wxSTC_MARKNUM_FOLDEROPEN, wxColour( wxT("BLACK") ) );
+	textEdit->MarkerSetForeground( wxSTC_MARKNUM_FOLDEROPEN, wxColour( wxT("WHITE") ) );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDERSUB, wxSTC_MARK_EMPTY );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDEREND, wxSTC_MARK_BOXPLUS );
+	textEdit->MarkerSetBackground( wxSTC_MARKNUM_FOLDEREND, wxColour( wxT("BLACK") ) );
+	textEdit->MarkerSetForeground( wxSTC_MARKNUM_FOLDEREND, wxColour( wxT("WHITE") ) );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDEROPENMID, wxSTC_MARK_BOXMINUS );
+	textEdit->MarkerSetBackground( wxSTC_MARKNUM_FOLDEROPENMID, wxColour( wxT("BLACK") ) );
+	textEdit->MarkerSetForeground( wxSTC_MARKNUM_FOLDEROPENMID, wxColour( wxT("WHITE") ) );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_EMPTY );
+	textEdit->MarkerDefine( wxSTC_MARKNUM_FOLDERTAIL, wxSTC_MARK_EMPTY );
+	textEdit->SetSelBackground( true, wxSystemSettings::GetColour( wxSYS_COLOUR_HIGHLIGHT ) );
+	textEdit->SetSelForeground( true, wxSystemSettings::GetColour( wxSYS_COLOUR_HIGHLIGHTTEXT ) );
+	textEdit->SetFont( wxFont( 12, wxFONTFAMILY_TELETYPE, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Anonymous Pro") ) );
 
-	bSizer1->Add( textedit, 1, wxEXPAND, 0 );
+	bSizer1->Add( textEdit, 1, wxEXPAND, 0 );
 
 
 	this->SetSizer( bSizer1 );

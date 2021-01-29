@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////////////////////////////
-// C++ code generated with wxFormBuilder (version 3.9.0 Jan 11 2021)
+// C++ code generated with wxFormBuilder (version 3.9.0 Jan 20 2021)
 // http://www.wxformbuilder.org/
 //
 // PLEASE DO *NOT* EDIT THIS FILE!
@@ -50,7 +50,7 @@ class MainFrame1 : public wxFrame
 		wxToolBarToolBase* undoTool;
 		wxToolBarToolBase* redoTool;
 		wxToolBarToolBase* exitTool;
-		wxStyledTextCtrl* textedit;
+		wxStyledTextCtrl* textEdit;
 
 		// Virtual event handlers, override them in your derived class
 		virtual void OnNewFile( wxCommandEvent& event ) { event.Skip(); }

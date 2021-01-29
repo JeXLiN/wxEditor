@@ -3,6 +3,7 @@
 
 #include "gui.h"
 #include <wx/filedlg.h>
+#include <wx/msgdlg.h>
 
 class MainFrame : public MainFrame1
 {
