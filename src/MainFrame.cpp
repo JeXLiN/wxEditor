@@ -14,6 +14,16 @@ MainFrame::MainFrame(wxWindow* parent): MainFrame1(parent)
 
     font = this->GetFont();
     textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
+
+    this->toolbar->EnableTool(wxID_SAVEFILE, false);
+    this->toolbar->EnableTool(wxID_UNDO, false);
+    this->toolbar->EnableTool(wxID_REDO, false);
+    this->menubar->Enable(wxID_SAVEFILE, false);
+    this->menubar->Enable(wxID_UNDO, false);
+    this->menubar->Enable(wxID_REDO, false);
+
+    Bind(wxEVT_STC_SAVEPOINTLEFT, &MainFrame::OnSavePointLeft, this);
+    Bind(wxEVT_STC_SAVEPOINTREACHED, &MainFrame::OnSavePointReached, this);
 }
 
 void MainFrame::OnNewFile(wxCommandEvent& WXUNUSED(event))
@@ -32,6 +42,13 @@ newfile:
     this->textEdit->EmptyUndoBuffer();
     CurrentFilePath.Clear();
     this->SetTitle(wxString(APPNAME) << " - untitled*");
+
+    this->toolbar->EnableTool(wxID_SAVEFILE, false);
+    this->toolbar->EnableTool(wxID_UNDO, false);
+    this->toolbar->EnableTool(wxID_REDO, false);
+    this->menubar->Enable(wxID_SAVEFILE, false);
+    this->menubar->Enable(wxID_UNDO, false);
+    this->menubar->Enable(wxID_REDO, false);
 }
 
 void MainFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
@@ -54,6 +71,13 @@ opendialog:
         CurrentFilePath = openFileDialog.GetPath();
         textEdit->LoadFile(CurrentFilePath);
         SetTitle(wxString(APPNAME) << " - " << openFileDialog.GetFilename());
+
+        this->toolbar->EnableTool(wxID_SAVEFILE, false);
+        this->toolbar->EnableTool(wxID_UNDO, false);
+        this->toolbar->EnableTool(wxID_REDO, false);
+        this->menubar->Enable(wxID_SAVEFILE, false);
+        this->menubar->Enable(wxID_UNDO, false);
+        this->menubar->Enable(wxID_REDO, false);
     }
 
     openFileDialog.Destroy();
@@ -77,10 +101,20 @@ void MainFrame::OnSave(wxString& path)
 
 void MainFrame::OnSaveFile(wxCommandEvent& WXUNUSED(event))
 {
-    if(!CurrentFilePath.IsEmpty())
+    if(!CurrentFilePath.IsEmpty()){
         textEdit->SaveFile(CurrentFilePath);
-    else
+        this->textEdit->SetSavePoint();
+
+        this->toolbar->EnableTool(wxID_SAVEFILE, false);
+        this->menubar->Enable(wxID_SAVEFILE, false);
+    }
+    else{
         OnSave(CurrentFilePath);
+        this->textEdit->SetSavePoint();
+
+        this->toolbar->EnableTool(wxID_SAVEFILE, false);
+        this->menubar->Enable(wxID_SAVEFILE, false);
+    }
 }
 
 void MainFrame::OnSaveAsFile(wxCommandEvent& WXUNUSED(event))
@@ -130,4 +164,20 @@ void MainFrame::OnSettingsDialog(wxCommandEvent& WXUNUSED(event))
         textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
     }
     settings.Destroy();
+}
+
+void MainFrame::OnSavePointLeft(wxStyledTextEvent& WXUNUSED(event))
+{
+    this->toolbar->EnableTool(wxID_SAVEFILE, true);
+    this->toolbar->EnableTool(wxID_UNDO, true);
+    this->toolbar->EnableTool(wxID_REDO, true);
+    this->menubar->Enable(wxID_SAVEFILE, true);
+    this->menubar->Enable(wxID_UNDO, true);
+    this->menubar->Enable(wxID_REDO, true);
+}
+
+void MainFrame::OnSavePointReached(wxStyledTextEvent& WXUNUSED(event))
+{
+    this->toolbar->EnableTool(wxID_SAVEFILE, false);
+    this->menubar->Enable(wxID_SAVEFILE, false);
 }

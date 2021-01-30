@@ -29,6 +29,7 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
+#define wxID_SAVEFILE 1000
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Class MainFrame1
@@ -38,11 +39,11 @@ class MainFrame1 : public wxFrame
 	private:
 
 	protected:
-		wxMenuBar* m_menubar1;
+		wxMenuBar* menubar;
 		wxMenu* m_menu1;
 		wxMenu* m_menu3;
 		wxMenu* m_menu2;
-		wxToolBar* m_toolBar1;
+		wxToolBar* toolbar;
 		wxToolBarToolBase* newFileTool;
 		wxToolBarToolBase* openFileTool;
 		wxToolBarToolBase* saveFileTool;

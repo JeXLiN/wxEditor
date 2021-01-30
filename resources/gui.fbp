@@ -67,7 +67,7 @@
                 <property name="id">wxID_ANY</property>
                 <property name="maximum_size"></property>
                 <property name="minimum_size"></property>
-                <property name="name">m_menubar1</property>
+                <property name="name">menubar</property>
                 <property name="permission">protected</property>
                 <property name="pos"></property>
                 <property name="size"></property>
@@ -114,7 +114,7 @@
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
                         <property name="help"></property>
-                        <property name="id">wxID_ANY</property>
+                        <property name="id">wxID_SAVEFILE</property>
                         <property name="kind">wxITEM_NORMAL</property>
                         <property name="label">Save File</property>
                         <property name="name">saveFileMenu</property>
@@ -183,7 +183,7 @@
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
                         <property name="help"></property>
-                        <property name="id">wxID_ANY</property>
+                        <property name="id">wxID_UNDO</property>
                         <property name="kind">wxITEM_NORMAL</property>
                         <property name="label">Undo</property>
                         <property name="name">undoMenu</property>
@@ -197,7 +197,7 @@
                         <property name="checked">0</property>
                         <property name="enabled">1</property>
                         <property name="help"></property>
-                        <property name="id">wxID_ANY</property>
+                        <property name="id">wxID_REDO</property>
                         <property name="kind">wxITEM_NORMAL</property>
                         <property name="label">Redo</property>
                         <property name="name">redoMenu</property>
@@ -264,7 +264,7 @@
                 <property name="minimize_button">0</property>
                 <property name="minimum_size"></property>
                 <property name="moveable">1</property>
-                <property name="name">m_toolBar1</property>
+                <property name="name">toolbar</property>
                 <property name="packing">1</property>
                 <property name="pane_border">1</property>
                 <property name="pane_position"></property>
@@ -310,7 +310,7 @@
                 <object class="tool" expanded="1">
                     <property name="bitmap">Load From Art Provider; wxART_FILE_SAVE; wxART_TOOLBAR</property>
                     <property name="context_menu">0</property>
-                    <property name="id">wxID_ANY</property>
+                    <property name="id">wxID_SAVEFILE</property>
                     <property name="kind">wxITEM_NORMAL</property>
                     <property name="label">Save File</property>
                     <property name="name">saveFileTool</property>
@@ -334,7 +334,7 @@
                 <object class="tool" expanded="1">
                     <property name="bitmap">Load From Art Provider; wxART_UNDO; wxART_TOOLBAR</property>
                     <property name="context_menu">0</property>
-                    <property name="id">wxID_ANY</property>
+                    <property name="id">wxID_UNDO</property>
                     <property name="kind">wxITEM_NORMAL</property>
                     <property name="label">Undo</property>
                     <property name="name">undoTool</property>
@@ -346,7 +346,7 @@
                 <object class="tool" expanded="1">
                     <property name="bitmap">Load From Art Provider; wxART_REDO; wxART_TOOLBAR</property>
                     <property name="context_menu">0</property>
-                    <property name="id">wxID_ANY</property>
+                    <property name="id">wxID_REDO</property>
                     <property name="kind">wxITEM_NORMAL</property>
                     <property name="label">Redo</property>
                     <property name="name">redoTool</property>

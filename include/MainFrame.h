@@ -22,6 +22,8 @@ protected:
     void OnUndo(wxCommandEvent& event);
     void OnRedo(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
+    void OnSavePointLeft(wxStyledTextEvent& event);
+    void OnSavePointReached(wxStyledTextEvent& event);
 
 public:
     MainFrame(wxWindow* parent);
