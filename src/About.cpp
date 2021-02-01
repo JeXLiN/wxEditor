@@ -2,18 +2,18 @@
 #include "Resources.hpp"
 #include "config.h"
 #include <wx/aboutdlg.h>
-#include <wx/file.h>
 
 wxString readLicense(const wxString& filename)
 {
+    Resources res;
     wxString short_license = "This code is licensed under MIT License (see LICENSE for details)";
 
-    if(!wxFile::Exists(filename)){
-        wxPuts("File \""+ filename+ "\" not found");
+    if(!res.Exists(filename)){
+        wxPuts("File \"" + filename + "\" not found");
         return short_license;
     }
 
-    wxFile file(filename);
+    wxFile file(res.GetResource(filename));
 
     if(!file.IsOpened())
         return short_license;
@@ -36,15 +36,14 @@ wxString readLicense(const wxString& filename)
 
 void About()
 {
-    Resources res;
-    wxString license = readLicense(res.GetFile("LICENSE"));
+    wxString license = readLicense("LICENSE");
     wxAboutDialogInfo info;
     info.SetIcon(info.GetIcon());
     info.SetName(wxString(APPNAME));
     info.SetVersion(wxString(VERSION));
     info.SetLicense(license);
     info.SetDescription(_("Ultra-modern text editor with syntax highlighting"));
-    info.SetCopyright(wxT("(C) 2021 Sergey <GovnoCoder> Barskov"));
+    info.SetCopyright(wxT("(C) 2021 Sergey <Guru> Barskov"));
     info.AddDeveloper(wxT("Sergey Barskov"));
     info.AddTranslator(wxT("Sergey Barskov"));
     wxAboutBox(info);

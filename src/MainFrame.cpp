@@ -7,8 +7,7 @@
 MainFrame::MainFrame(wxWindow* parent): MainFrame1(parent)
 {
     Resources res;
-
-    config = new Config(res.GetResourceDir() + "/editor.conf");
+    config = new Config(res.GetResource("editor.conf"));
 
     if(res.Exists("editor.conf")){
         config->ReadData("/SettingsDialog/font", &fontstr);

@@ -4,8 +4,6 @@
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
 #include <wx/dir.h>
-#include <wx/icon.h>
-#include <wx/string.h>
 
 class Resources
 {
@@ -13,9 +11,7 @@ private:
     wxString resourcedir;
 public:
     Resources();
-    wxString GetResourceDir();
-    wxIcon GetIcon(wxString icon);
-    wxString GetFile(wxString filename);
+    wxString GetResource(wxString filename);
     bool Exists(wxString filename);
 };
 

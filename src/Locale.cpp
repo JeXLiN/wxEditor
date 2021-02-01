@@ -13,7 +13,7 @@ Locale::Locale()
         #ifdef __WXGTK__
         locale->AddCatalogLookupPathPrefix(wxT("/usr"));
         locale->AddCatalogLookupPathPrefix(wxT("/usr/local"));
-        wxString localedir = res.GetResourceDir() + "/locale";
+        wxString localedir = res.GetResource("/locale");
         locale->AddCatalogLookupPathPrefix(localedir);
         wxStandardPaths* paths = (wxStandardPaths*) &wxStandardPaths::Get();
         wxString prefix = paths->GetInstallPrefix();

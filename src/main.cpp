@@ -18,14 +18,23 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
+    Resources res;
     Locale locale;
 
     if(!wxApp::OnInit())
         return false;
     MainFrame *frame = new MainFrame(NULL);
-    Resources res;
     frame->SetTitle(APPNAME);
-    frame->SetIcon(res.GetIcon("icon.xpm"));
+
+    wxString iconfile = "icon.xpm";
+    if(res.Exists(iconfile)){
+        frame->SetIcon(res.GetResource(iconfile));
+    }
+    else{
+        wxPuts("File \"" + iconfile + "\" not found");
+        frame->SetIcon(wxNullIcon);
+    }
+
     frame->Show();
     return true;
 }
