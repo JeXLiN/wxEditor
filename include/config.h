@@ -1,4 +1,4 @@
 #pragma once
 
 #define APPNAME "wxEditor"
-#define VERSION "0.1.0"
+#define VERSION "0.1.4"
