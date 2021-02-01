@@ -2,7 +2,7 @@
 
 SettingsDialog::SettingsDialog(wxWindow* parent, wxFont& font): SettingsDialog1(parent)
 {
-    SetTitle(wxT("Settings"));
+    SetTitle(_("Settings"));
 
     if(font.IsOk()){
         setFont(font);

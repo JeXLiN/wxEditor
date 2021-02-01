@@ -48,7 +48,7 @@ MainFrame::~MainFrame()
 void MainFrame::OnNewFile(wxCommandEvent& WXUNUSED(event))
 {
     if(textEdit->GetModify()){
-        if(wxMessageBox(wxT("Current content has not been saved! Proceed?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO, this) == wxNO)
+        if(wxMessageBox(_("Current content has not been saved! Proceed?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO, this) == wxNO)
             return;
         else{
             goto newfile;
@@ -73,7 +73,7 @@ newfile:
 void MainFrame::OnOpenFile(wxCommandEvent& WXUNUSED(event))
 {
     if(textEdit->GetModify()){
-        if(wxMessageBox(wxT("Current content has not been saved! Proceed?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO, this) == wxNO)
+        if(wxMessageBox(_("Current content has not been saved! Proceed?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO, this) == wxNO)
             return;
         else{
             goto opendialog;
@@ -159,7 +159,7 @@ void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 void MainFrame::OnExit(wxCommandEvent& WXUNUSED(event))
 {
     if(textEdit->GetModify()){
-        int answer = wxMessageBox(wxT("Current content has not been saved! Save file?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO | wxCANCEL, this);
+        int answer = wxMessageBox(_("Current content has not been saved! Save to file?"), _("Please confirm"), wxICON_QUESTION | wxYES_NO | wxCANCEL, this);
         if(answer == wxYES){
             if(!CurrentFilePath.IsEmpty())
                 textEdit->SaveFile(CurrentFilePath);

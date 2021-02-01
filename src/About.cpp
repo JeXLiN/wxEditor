@@ -43,7 +43,9 @@ void About()
     info.SetName(wxString(APPNAME));
     info.SetVersion(wxString(VERSION));
     info.SetLicense(license);
-    info.SetDescription(wxT("Суперсовременный текстовый редактор с подсветкой синтаксиса"));
+    info.SetDescription(_("Ultra-modern text editor with syntax highlighting"));
     info.SetCopyright(wxT("(C) 2021 Sergey <GovnoCoder> Barskov"));
+    info.AddDeveloper(wxT("Sergey Barskov"));
+    info.AddTranslator(wxT("Sergey Barskov"));
     wxAboutBox(info);
 }

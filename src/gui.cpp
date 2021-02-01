@@ -16,7 +16,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	menubar = new wxMenuBar( 0 );
 	m_menu1 = new wxMenu();
 	wxMenuItem* newFileMenu;
-	newFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("New File") ) + wxT('\t') + wxT("Ctrl+N"), wxEmptyString, wxITEM_NORMAL );
+	newFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("New") ) + wxT('\t') + wxT("Ctrl+N"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	newFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_NEW, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -25,7 +25,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->Append( newFileMenu );
 
 	wxMenuItem* openFileMenu;
-	openFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Open File") ) + wxT('\t') + wxT("Ctrl+O"), wxEmptyString, wxITEM_NORMAL );
+	openFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("Open") ) + wxT('\t') + wxT("Ctrl+O"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	openFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_FILE_OPEN, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -34,7 +34,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->Append( openFileMenu );
 
 	wxMenuItem* saveFileMenu;
-	saveFileMenu = new wxMenuItem( m_menu1, wxID_SAVEFILE, wxString( wxT("Save File") ) + wxT('\t') + wxT("Ctrl+S"), wxEmptyString, wxITEM_NORMAL );
+	saveFileMenu = new wxMenuItem( m_menu1, wxID_SAVEFILE, wxString( _("Save") ) + wxT('\t') + wxT("Ctrl+S"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	saveFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_FILE_SAVE, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -43,7 +43,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->Append( saveFileMenu );
 
 	wxMenuItem* saveAsFileMenu;
-	saveAsFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Save As File") ) + wxT('\t') + wxT("Ctrl+Shift+S"), wxEmptyString, wxITEM_NORMAL );
+	saveAsFileMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("Save As") ) + wxT('\t') + wxT("Ctrl+Shift+S"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	saveAsFileMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_FILE_SAVE_AS, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -54,7 +54,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->AppendSeparator();
 
 	wxMenuItem* SettingsMenu;
-	SettingsMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( wxT("Settings") ) , wxEmptyString, wxITEM_NORMAL );
+	SettingsMenu = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("Settings") ) , wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	SettingsMenu->SetBitmaps( wxArtProvider::GetBitmap( wxT("gtk-properties"), wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -65,7 +65,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu1->AppendSeparator();
 
 	wxMenuItem* exitMenu;
-	exitMenu = new wxMenuItem( m_menu1, wxID_EXIT, wxString( wxT("Exit") ) + wxT('\t') + wxT("Ctrl+Q"), wxEmptyString, wxITEM_NORMAL );
+	exitMenu = new wxMenuItem( m_menu1, wxID_EXIT, wxString( _("Exit") ) + wxT('\t') + wxT("Ctrl+Q"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	exitMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_QUIT, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -73,11 +73,11 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	#endif
 	m_menu1->Append( exitMenu );
 
-	menubar->Append( m_menu1, wxT("&File") );
+	menubar->Append( m_menu1, _("&File") );
 
 	m_menu3 = new wxMenu();
 	wxMenuItem* undoMenu;
-	undoMenu = new wxMenuItem( m_menu3, wxID_UNDO, wxString( wxT("Undo") ) + wxT('\t') + wxT("Ctrl+U"), wxEmptyString, wxITEM_NORMAL );
+	undoMenu = new wxMenuItem( m_menu3, wxID_UNDO, wxString( _("Undo") ) + wxT('\t') + wxT("Ctrl+U"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	undoMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_UNDO, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -86,7 +86,7 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_menu3->Append( undoMenu );
 
 	wxMenuItem* redoMenu;
-	redoMenu = new wxMenuItem( m_menu3, wxID_REDO, wxString( wxT("Redo") ) + wxT('\t') + wxT("Ctrl+R"), wxEmptyString, wxITEM_NORMAL );
+	redoMenu = new wxMenuItem( m_menu3, wxID_REDO, wxString( _("Redo") ) + wxT('\t') + wxT("Ctrl+R"), wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	redoMenu->SetBitmaps( wxArtProvider::GetBitmap( wxART_REDO, wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -94,11 +94,11 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	#endif
 	m_menu3->Append( redoMenu );
 
-	menubar->Append( m_menu3, wxT("&Edit") );
+	menubar->Append( m_menu3, _("&Edit") );
 
 	m_menu2 = new wxMenu();
 	wxMenuItem* aboutMenu;
-	aboutMenu = new wxMenuItem( m_menu2, wxID_ABOUT, wxString( wxT("About") ) , wxEmptyString, wxITEM_NORMAL );
+	aboutMenu = new wxMenuItem( m_menu2, wxID_ABOUT, wxString( _("About") ) , wxEmptyString, wxITEM_NORMAL );
 	#ifdef __WXMSW__
 	aboutMenu->SetBitmaps( wxArtProvider::GetBitmap( wxT("gtk-about"), wxART_MENU ) );
 	#elif (defined( __WXGTK__ ) || defined( __WXOSX__ ))
@@ -106,24 +106,24 @@ MainFrame1::MainFrame1( wxWindow* parent, wxWindowID id, const wxString& title, 
 	#endif
 	m_menu2->Append( aboutMenu );
 
-	menubar->Append( m_menu2, wxT("&Help") );
+	menubar->Append( m_menu2, _("&Help") );
 
 	this->SetMenuBar( menubar );
 
 	toolbar = this->CreateToolBar( wxTB_HORIZONTAL, wxID_ANY );
-	newFileTool = toolbar->AddTool( wxID_ANY, wxT("New File"), wxArtProvider::GetBitmap( wxART_NEW, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	newFileTool = toolbar->AddTool( wxID_ANY, _("New"), wxArtProvider::GetBitmap( wxART_NEW, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
-	openFileTool = toolbar->AddTool( wxID_ANY, wxT("Open File"), wxArtProvider::GetBitmap( wxART_FILE_OPEN, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	openFileTool = toolbar->AddTool( wxID_ANY, _("Open"), wxArtProvider::GetBitmap( wxART_FILE_OPEN, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
-	saveFileTool = toolbar->AddTool( wxID_SAVEFILE, wxT("Save File"), wxArtProvider::GetBitmap( wxART_FILE_SAVE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	saveFileTool = toolbar->AddTool( wxID_SAVEFILE, _("Save"), wxArtProvider::GetBitmap( wxART_FILE_SAVE, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
-	saveAsTool = toolbar->AddTool( wxID_ANY, wxT("Save As"), wxArtProvider::GetBitmap( wxART_FILE_SAVE_AS, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	saveAsTool = toolbar->AddTool( wxID_ANY, _("Save As"), wxArtProvider::GetBitmap( wxART_FILE_SAVE_AS, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
-	undoTool = toolbar->AddTool( wxID_UNDO, wxT("Undo"), wxArtProvider::GetBitmap( wxART_UNDO, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	undoTool = toolbar->AddTool( wxID_UNDO, _("Undo"), wxArtProvider::GetBitmap( wxART_UNDO, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
-	redoTool = toolbar->AddTool( wxID_REDO, wxT("Redo"), wxArtProvider::GetBitmap( wxART_REDO, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	redoTool = toolbar->AddTool( wxID_REDO, _("Redo"), wxArtProvider::GetBitmap( wxART_REDO, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
-	exitTool = toolbar->AddTool( wxID_ANY, wxT("Exit"), wxArtProvider::GetBitmap( wxART_QUIT, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
+	exitTool = toolbar->AddTool( wxID_ANY, _("Exit"), wxArtProvider::GetBitmap( wxART_QUIT, wxART_TOOLBAR ), wxNullBitmap, wxITEM_NORMAL, wxEmptyString, wxEmptyString, NULL );
 
 	toolbar->Realize();
 
@@ -220,7 +220,7 @@ SettingsDialog1::SettingsDialog1( wxWindow* parent, wxWindowID id, const wxStrin
 	bSizer2 = new wxBoxSizer( wxVERTICAL );
 
 	wxStaticBoxSizer* sbSizer4;
-	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, wxT("Font") ), wxVERTICAL );
+	sbSizer4 = new wxStaticBoxSizer( new wxStaticBox( this, wxID_ANY, _("Font") ), wxVERTICAL );
 
 	fontPicker = new wxFontPickerCtrl( sbSizer4->GetStaticBox(), wxID_ANY, wxFont( wxNORMAL_FONT->GetPointSize(), wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxEmptyString ), wxDefaultPosition, wxDefaultSize, wxFNTP_DEFAULT_STYLE );
 	fontPicker->SetMaxPointSize( 100 );

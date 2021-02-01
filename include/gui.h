@@ -9,6 +9,7 @@
 
 #include <wx/artprov.h>
 #include <wx/xrc/xmlres.h>
+#include <wx/intl.h>
 #include <wx/string.h>
 #include <wx/bitmap.h>
 #include <wx/image.h>
@@ -29,8 +30,6 @@
 
 ///////////////////////////////////////////////////////////////////////////
 
-#define wxID_SAVEFILE 1000
-
 ///////////////////////////////////////////////////////////////////////////////
 /// Class MainFrame1
 ///////////////////////////////////////////////////////////////////////////////
@@ -39,6 +38,11 @@ class MainFrame1 : public wxFrame
 	private:
 
 	protected:
+		enum
+		{
+			wxID_SAVEFILE = 1000
+		};
+
 		wxMenuBar* menubar;
 		wxMenu* m_menu1;
 		wxMenu* m_menu3;

@@ -4,6 +4,7 @@
 #endif
 #include "MainFrame.h"
 #include "Resources.hpp"
+#include "Locale.hpp"
 #include "config.h"
 
 class MyApp: public wxApp
@@ -17,6 +18,8 @@ wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit()
 {
+    Locale locale;
+
     if(!wxApp::OnInit())
         return false;
     MainFrame *frame = new MainFrame(NULL);
