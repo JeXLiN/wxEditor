@@ -22,10 +22,9 @@ wxString readLicense(const wxString& filename)
     if(nSize == wxInvalidOffset)
         return short_license;
 
-    wxUint8* data = new wxUint8[nSize];
+    wxUint8 data[nSize];
 
     if(file.Read(data, static_cast<size_t>(nSize)) != nSize){
-        delete[] data;
         return short_license;
     }
 
