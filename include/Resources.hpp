@@ -13,8 +13,10 @@ private:
     wxString resourcedir;
 public:
     Resources();
+    wxString GetResourceDir();
     wxIcon GetIcon(wxString icon);
     wxString GetFile(wxString filename);
+    bool Exists(wxString filename);
 };
 
 #endif // __Resources__

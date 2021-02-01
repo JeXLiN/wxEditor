@@ -29,7 +29,7 @@ configure_file(
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
-set(SRC main.cpp gui.cpp MainFrame.cpp SettingsDialog.cpp About.cpp Resources.cpp)
+set(SRC main.cpp gui.cpp MainFrame.cpp SettingsDialog.cpp About.cpp Resources.cpp Config.cpp)
 
 set(wxWidgets_CONFIG_OPTIONS ${wxWidgets_CONFIG_OPTIONS} "--toolkit=gtk3")
 

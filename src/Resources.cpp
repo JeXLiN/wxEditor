@@ -6,6 +6,11 @@ Resources::Resources()
     resourcedir = executablePath.GetPath() + "/resources";
 }
 
+wxString Resources::GetResourceDir()
+{
+    return resourcedir;
+}
+
 wxIcon Resources::GetIcon(wxString icon)
 {
     if(wxDir::Exists(resourcedir)){
@@ -30,4 +35,17 @@ wxString Resources::GetFile(wxString filename)
     }
     else
         return wxEmptyString;
+}
+
+bool Resources::Exists(wxString filename)
+{
+    if(wxDir::Exists(resourcedir)){
+        wxFileName file(resourcedir + "/" + filename);
+        if(file.Exists())
+            return 1;
+        else
+            return 0;
+    }
+    else
+        return -1;
 }

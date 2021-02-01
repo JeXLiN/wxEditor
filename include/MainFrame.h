@@ -2,6 +2,7 @@
 #define __MainFrame__
 
 #include "gui.h"
+#include "Config.hpp"
 #include <wx/filedlg.h>
 #include <wx/msgdlg.h>
 
@@ -10,7 +11,9 @@ class MainFrame : public MainFrame1
 private:
     wxString file_ext;
     wxFont font;
+    wxString fontstr;
     wxString CurrentFilePath;
+    Config *config;
 
 protected:
     void OnNewFile(wxCommandEvent& event);
@@ -27,6 +30,7 @@ protected:
 
 public:
     MainFrame(wxWindow* parent);
+    ~MainFrame();
     void OnSave(wxString& path);
 };
 

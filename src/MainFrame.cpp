@@ -1,19 +1,32 @@
 #include "MainFrame.h"
-#include "About.hpp"
+#include "Resources.hpp"
 #include "SettingsDialog.h"
+#include "About.hpp"
 #include "config.h"
 
 MainFrame::MainFrame(wxWindow* parent): MainFrame1(parent)
 {
+    Resources res;
+
+    config = new Config(res.GetResourceDir() + "/editor.conf");
+
+    if(res.Exists("editor.conf")){
+        config->ReadData("/SettingsDialog/font", &fontstr);
+        font.SetNativeFontInfoUserDesc(fontstr);
+        textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
+    }
+    else{
+        font = this->GetFont();
+        config->WriteData("/SettingsDialog/font", font.GetNativeFontInfoUserDesc());
+        textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
+    }
+
     this->file_ext = wxT("All Files (*)|*|")
         wxT("Text Files (*.txt)|*.txt|")
         wxT("C Source Files (*.c)|*.c|")
         wxT("C++ Source Files (*.cpp;*.cxx;*.c++)|*.cpp;*.cxx;*.c++|")
         wxT("C/C++ Header Files (*.h;*.hpp)|*.h;*.hpp|")
         wxT("Python Files (*.py)|*.py");
-
-    font = this->GetFont();
-    textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
 
     this->toolbar->EnableTool(wxID_SAVEFILE, false);
     this->toolbar->EnableTool(wxID_UNDO, false);
@@ -24,6 +37,12 @@ MainFrame::MainFrame(wxWindow* parent): MainFrame1(parent)
 
     Bind(wxEVT_STC_SAVEPOINTLEFT, &MainFrame::OnSavePointLeft, this);
     Bind(wxEVT_STC_SAVEPOINTREACHED, &MainFrame::OnSavePointReached, this);
+
+}
+
+MainFrame::~MainFrame()
+{
+    delete config;
 }
 
 void MainFrame::OnNewFile(wxCommandEvent& WXUNUSED(event))
@@ -161,6 +180,7 @@ void MainFrame::OnSettingsDialog(wxCommandEvent& WXUNUSED(event))
     SettingsDialog settings(NULL, font);
     if(settings.ShowModal() == wxID_OK){
         font = settings.getFont();
+        config->WriteData("/SettingsDialog/font", font.GetNativeFontInfoUserDesc());
         textEdit->StyleSetFont(wxSTC_STYLE_DEFAULT, font);
     }
     settings.Destroy();
