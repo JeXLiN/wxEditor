@@ -10,6 +10,3 @@ make -j$(nproc)
 
 Run:
 ./build/release/wxEditor
-
-wxWidgets form builder:
-wxformbuilder
