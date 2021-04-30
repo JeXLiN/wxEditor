@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(wxEditor)
 
 set(APPNAME "\"wxEditor\"")
-set(VERSION "\"0.1.4\"")
+set(VERSION "\"0.1.5\"")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
