@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-01 07:00+0300\n"
+"POT-Creation-Date: 2021-04-30 16:24+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,14 +33,6 @@ msgstr ""
 msgid "About"
 msgstr ""
 
-#: wxEditor/src/MainFrame.cpp:51 wxEditor/src/MainFrame.cpp:76
-msgid "Current content has not been saved! Proceed?"
-msgstr ""
-
-#: wxEditor/src/MainFrame.cpp:162
-msgid "Current content has not been saved! Save to file?"
-msgstr ""
-
 #: wxEditor/src/gui.cpp:68 wxEditor/src/gui.cpp:126
 msgid "Exit"
 msgstr ""
@@ -57,8 +49,8 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: wxEditor/src/MainFrame.cpp:51 wxEditor/src/MainFrame.cpp:76
-#: wxEditor/src/MainFrame.cpp:162
+#: wxEditor/src/MainFrame.cpp:50 wxEditor/src/MainFrame.cpp:75
+#: wxEditor/src/MainFrame.cpp:161
 msgid "Please confirm"
 msgstr ""
 
@@ -78,8 +70,16 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: wxEditor/src/About.cpp:46
-msgid "Ultra-modern text editor with syntax highlighting"
+#: wxEditor/src/MainFrame.cpp:50 wxEditor/src/MainFrame.cpp:75
+msgid "The current document has not been saved! Continue?"
+msgstr ""
+
+#: wxEditor/src/MainFrame.cpp:161
+msgid "The current document has not been saved! Save to file?"
+msgstr ""
+
+#: wxEditor/src/About.cpp:44
+msgid "Ultra-modern text editor"
 msgstr ""
 
 #: wxEditor/src/gui.cpp:80 wxEditor/src/gui.cpp:122

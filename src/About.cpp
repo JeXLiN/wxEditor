@@ -41,8 +41,8 @@ void About()
     info.SetName(wxString(APPNAME));
     info.SetVersion(wxString(VERSION));
     info.SetLicense(license);
-    info.SetDescription(_("Ultra-modern text editor with syntax highlighting"));
-    info.SetCopyright(wxT("(C) 2021 Sergey <Guru> Barskov"));
+    info.SetDescription(_("Ultra-modern text editor"));
+    info.SetCopyright(wxT("Copyright (c) 2021 Sergey Barskov"));
     info.AddDeveloper(wxT("Sergey Barskov"));
     info.AddTranslator(wxT("Sergey Barskov"));
     wxAboutBox(info);
